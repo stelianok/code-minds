@@ -25,8 +25,31 @@ The main objective of this project is mainly to study more deeply about automate
 ---
 ## Installation
 
+Create a .env file in the root of your project, following .env.example as a guide.
+
+Install the necessary dependencies:
+
 ```bash
 $ npm i 
+```
+
+Start the database:
+```bash
+$ docker compose up
+```
+
+Initialize prisma:
+
+```bash
+$ npx prisma init
+```
+
+Don't forget to update the username, password and database name in **DATABASE_URL** variable in **.env**
+
+Run the migrations: 
+
+```bash
+$ npx prisma migrate dev 
 ```
 
 ## Running the app
