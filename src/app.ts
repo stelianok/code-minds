@@ -1,4 +1,4 @@
-import { Question, User } from "@prisma/client";
+import { User } from "@prisma/client";
 import { randomUUID } from "crypto";
 import fastify, { FastifyRequest } from "fastify";
 import { prisma } from "./lib/prisma";
