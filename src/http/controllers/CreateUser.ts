@@ -14,7 +14,7 @@ export async function createUser(request: FastifyRequest<{ Body: ICreateUserRequ
 
   const registerBodySchema = z.object({
     name: z.string(),
-    title: z.string(),
+    title: z.string().optional(),
     email: z.string().email(),
     password: z.string().min(6),
   })
