@@ -14,5 +14,5 @@ export async function AppRoutes(app: FastifyInstance) {
   app.post('/sessions', authenticate)
 
   app.post('/questions', { onRequest: [verifyJWT] }, CreateQuestion)
-  app.post('/answers', CreateAnswer)
+  app.post('/answers', { onRequest: [verifyJWT] }, CreateAnswer)
 }
