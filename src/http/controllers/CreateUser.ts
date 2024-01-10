@@ -24,12 +24,14 @@ export async function createUser(request: FastifyRequest<{ Body: ICreateUserRequ
   try {
     const createUserUseCase = makeCreateUserUseCase()
 
-    await createUserUseCase.execute({
+    const { user } = await createUserUseCase.execute({
       name,
       title,
       email,
       password
     });
+
+    console.log(user.id);
   }
   catch (err) {
     if (err instanceof UserAlreadyExistsError) {
@@ -37,6 +39,7 @@ export async function createUser(request: FastifyRequest<{ Body: ICreateUserRequ
     }
     throw err
   }
-
   return reply.status(201).send()
+
+
 }
