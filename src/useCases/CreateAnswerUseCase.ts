@@ -37,8 +37,8 @@ export class CreateAnswerUseCase {
 
     const answer = await this.answersRepository.create({
       description,
-      question: { create: question },
-      author: { create: user }
+      question: { connect: question },
+      author: { connect: user }
     })
 
     return { answer };

@@ -8,7 +8,7 @@ export class InMemoryQuestionRepository implements IQuestionsRepository {
 
   async create(data: Prisma.QuestionCreateInput) {
 
-    if (!data.author.create?.id) {
+    if (!data.author.connect?.id) {
       throw new ResourceNotFoundError()
     }
 
@@ -16,7 +16,7 @@ export class InMemoryQuestionRepository implements IQuestionsRepository {
       id: data.id ?? randomUUID(),
       title: data.title,
       description: data.description,
-      author_id: data.author.create.id,
+      author_id: data.author.connect.id,
       score: 0,
       created_at: new Date(),
       updated_at: new Date()

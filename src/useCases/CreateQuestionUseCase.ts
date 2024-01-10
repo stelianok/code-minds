@@ -41,7 +41,7 @@ export class CreateQuestionUseCase {
       description,
       score: 0,
       author: {
-        create: user,
+        connect: user,
       }
     })
 

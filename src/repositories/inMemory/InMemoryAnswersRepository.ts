@@ -7,8 +7,8 @@ export class InMemoryAnswersRepository implements IAnswersRepository {
   private answers: Answer[] = []
 
   async create(data: Prisma.AnswerCreateInput) {
-    const authorId = data.author.create?.id;
-    const questionId = data.question.create?.id;
+    const authorId = data.author.connect?.id;
+    const questionId = data.question.connect?.id;
 
     if (!authorId) {
       throw new ResourceNotFoundError()
