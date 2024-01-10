@@ -30,7 +30,7 @@ describe("Create answer use case", () => {
       title: 'question-title',
       description: "description",
       author: {
-        create: user
+        connect: user
       }
     })
 
@@ -62,7 +62,7 @@ describe("Create answer use case", () => {
       title: 'question-title',
       description: "description",
       author: {
-        create: questionUser
+        connect: questionUser
       }
     })
 
@@ -104,7 +104,7 @@ describe("Create answer use case", () => {
       title: 'question-title',
       description: "description",
       author: {
-        create: user
+        connect: user
       }
     })
 
