@@ -1,6 +1,6 @@
 import { ResourceNotFoundError } from "@/useCases/errors/ResourceNotFoundError";
 import { makeCreateQuestionUseCase } from "@/useCases/factories/makeCreateQuestionUseCase";
-import { FastifyReply, FastifyRequest } from "fastify";
+import { FastifyReply, FastifyRequest, RequestGenericInterface } from "fastify";
 import { z } from "zod";
 
 interface ICreateQuestionRequest {
@@ -10,7 +10,7 @@ interface ICreateQuestionRequest {
 }
 
 export async function CreateQuestion(
-  request: FastifyRequest<{ Body: ICreateQuestionRequest }>,
+  request: FastifyRequest<{ Body: ICreateQuestionRequest } | RequestGenericInterface>,
   reply: FastifyReply
 ) {
 
