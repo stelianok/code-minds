@@ -6,6 +6,19 @@ import { ResourceNotFoundError } from "@/useCases/errors/ResourceNotFoundError";
 export class InMemoryQuestionRepository implements IQuestionsRepository {
   public questions: Question[] = [];
 
+
+  async list() {
+    const sortedQuestionsByDate = this.questions.sort((a, b) => {
+      return ((b.created_at.getTime() - a.created_at.getTime()))
+    });
+
+    console.log(sortedQuestionsByDate)
+
+    return sortedQuestionsByDate
+  }
+
+
+
   async create(data: Prisma.QuestionCreateInput) {
 
     if (!data.author.connect?.id) {
