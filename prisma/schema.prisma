@@ -28,7 +28,7 @@ model Question {
   description String
   score       Int    @default(0)
 
-  Answer Answer[]
+  answers Answer[]
 
   author    User   @relation(fields: [author_id], references: [id])
   author_id String
